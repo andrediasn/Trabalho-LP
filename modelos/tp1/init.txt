@@ -1,0 +1,430 @@
+%% Autor: Oromar Voit de Rezende
+%% Matrícula: 201765122C
+
+add_curso('65361', 'Ciência da Computação').
+add_curso('1128364', 'Sistemas de Informação').
+
+add_disciplina('MAT155', 'Geometria Analítica e Sistemas Lineares').
+add_grade('65361', 'MAT155').
+add_grade('1128364', 'MAT155').
+
+add_disciplina('MAT154', 'Cálculo I').
+add_grade('65361', 'MAT154').
+add_grade('1128364', 'MAT154').
+
+add_disciplina('QUI125', 'Química Fundamental').
+add_grade('65361', 'QUI125').
+
+add_disciplina('FIS122', 'Laboratório de Introdução às Ciências Físicas').
+add_grade('65361', 'FIS122').
+
+add_disciplina('DCC119', 'Algoritmos').
+add_grade('65361', 'DCC119').
+add_grade('1128364', 'DCC119').
+
+add_disciplina('DCC120', 'Laboratório de Programação').
+add_grade('65361', 'DCC120').
+add_grade('1128364', 'DCC120').
+
+add_disciplina('QUI126', 'Laboratório de Química').
+add_grade('65361', 'QUI126').
+
+add_disciplina('ICE001', 'Introdução a Ciências Exatas').
+add_grade('65361', 'ICE001').
+
+add_disciplina('MAT156', 'Cálculo II').
+add_grade('65361', 'MAT156').
+add_grade('1128364', 'MAT156').
+
+add_disciplina('EST028', 'Introdução à Estatística').
+add_grade('65361', 'EST028').
+
+add_disciplina('FIS073', 'Física I').
+add_grade('65361', 'FIS073').
+
+add_disciplina('FIS077', 'Laboratório de Física I').
+add_grade('65361', 'FIS077').
+
+add_disciplina('DCC013', 'Estrutura de Dados').
+add_grade('65361', 'DCC013').
+add_grade('1128364', 'DCC013').
+
+add_disciplina('DCC107', 'Laboratório de Programação II').
+add_grade('65361', 'DCC107').
+add_grade('1128364', 'DCC107').
+
+add_disciplina('QUI162', 'Laboratório de Estrutura e Transformações').
+add_grade('65361', 'QUI162').
+
+add_disciplina('DCC179', 'Laboratório de Ciência da Computação').
+add_grade('65361', 'DCC179').
+
+add_disciplina('MAT157', 'Cálculo III').
+add_grade('65361', 'MAT157').
+
+add_disciplina('DCC160', 'Lógica e Fundamentos da Computação').
+add_grade('65361', 'DCC160').
+add_grade('1128364', 'DCC160').
+
+add_disciplina('MAT143', 'Introdução à Teoria dos Números').
+add_grade('65361', 'MAT143').
+
+add_disciplina('DCC059', 'Teoria dos Grafos').
+add_grade('65361', 'DCC059').
+add_grade('1128364', 'DCC059').
+
+add_disciplina('DCC025', 'Orientação a Objetos').
+add_grade('65361', 'DCC025').
+add_grade('1128364', 'DCC025').
+
+add_disciplina('DCC122', 'Circuitos Digitais').
+add_grade('65361', 'DCC122').
+
+add_disciplina('MAT158', 'Álgebra Linear').
+add_grade('65361', 'MAT158').
+
+add_disciplina('MAT029', 'Equações Diferenciais I').
+add_grade('65361', 'MAT029').
+
+add_disciplina('DCC008', 'Cálculo Numérico').
+add_grade('65361', 'DCC008').
+
+add_disciplina('DCC012', 'Estrutura de Dados II').
+add_grade('65361', 'DCC012').
+add_grade('1128364', 'DCC012').
+
+add_disciplina('DCC117', 'Modelagem de Sistemas').
+add_grade('65361', 'DCC117').
+add_grade('65361', 'DCC117').
+
+add_disciplina('DCC070', 'Organização de Computadores').
+add_grade('65361', 'DCC070').
+add_grade('1128364', 'DCC070').
+
+add_disciplina('DCC065', 'Computação Gráfica').
+add_grade('65361', 'DCC065').
+
+add_disciplina('DCC014', 'Inteligência Artificial').
+add_grade('65361', 'DCC014').
+add_grade('1128364', 'DCC014').
+
+add_disciplina('EST029', 'Cálculo de Probabilidades I').
+add_grade('65361', 'EST029').
+add_grade('1128364', 'EST029').
+
+add_disciplina('DCC060', 'Banco de Dados').
+add_grade('65361', 'DCC060').
+add_grade('1128364', 'DCC060').
+
+add_disciplina('DCC061', 'Engenharia de Software').
+add_grade('65361', 'DCC061').
+add_grade('1128364', 'DCC061').
+
+add_disciplina('DCC062', 'Sistemas Operacionais').
+add_grade('65361', 'DCC062').
+add_grade('1128364', 'DCC062').
+
+add_disciplina('DCC163', 'Pesquisa Operacional').
+add_grade('65361', 'DCC163').
+add_grade('1128364', 'DCC163').
+
+add_disciplina('DCC063', 'Linguagens Formais').
+add_grade('65361', 'DCC063').
+
+add_disciplina('DCC174', 'Interação Humano-Computador').
+add_grade('65361', 'DCC174').
+add_grade('1128364', 'DCC174').
+
+add_disciplina('EADDCC044', 'Informática e Sociedade').
+add_grade('65361', 'EADDCC044').
+add_grade('1128364', 'EADDCC044').
+
+add_disciplina('DCC042', 'Redes de Computadores').
+add_grade('65361', 'DCC042').
+add_grade('1128364', 'DCC042').
+
+add_disciplina('DCC064', 'Sistemas Distribuidos').
+add_grade('65361', 'DCC064').
+
+add_disciplina('DCC123', 'Metodologia Científica em Computação').
+add_grade('65361', 'DCC123').
+add_grade('1128364', 'DCC123').
+
+add_disciplina('DCC055', 'Teoria da Computação').
+add_grade('65361', 'DCC055').
+
+add_disciplina('DCC001', 'Análise e Projeto de Algoritmos').
+add_grade('65361', 'DCC001').
+
+add_disciplina('DCC075', 'Segurança em Sistemas de Computação').
+add_grade('65361', 'DCC075').
+
+add_disciplina('DCC110', 'Monografia Final em Computação').
+add_grade('65361', 'DCC110').
+
+add_disciplina('DCC045', 'Teoria dos Compiladores').
+add_grade('65361', 'DCC045').
+
+add_disciplina('DCC019', 'Linguagem de Programação').
+add_grade('65361', 'DCC019').
+
+add_disciplina('DCC133', 'Introdução a Sistemas de Informação').
+add_grade('1128364', 'DCC133').
+
+add_disciplina('DCC121', 'Laboratório de Programação WEB').
+add_grade('1128364', 'DCC121').
+
+add_disciplina('CAD076', 'Princípios Gerais de Administração I').
+add_grade('1128364', 'CAD076').
+
+add_disciplina('EADDCC049', 'Aspectos Legais da Informática').
+add_grade('1128364', 'EADDCC049').
+
+add_disciplina('FIN001', 'Contabilidade Geral e Introdutória').
+add_grade('1128364', 'FIN001').
+
+add_disciplina('DCC146', 'Aspectos Teóricos da Computação').
+add_grade('1128364', 'DCC146').
+
+add_disciplina('DCC192', 'Laboratório de Programação de Sistemas WEB').
+add_grade('1128364', 'DCC192').
+
+add_disciplina('DCC193', 'Laboratório de Programação de Sistemas WEB II').
+add_grade('1128364', 'DCC193').
+
+add_disciplina('DCC049', 'Empreendimentos em Informática').
+add_grade('1128364', 'DCC049').
+
+add_disciplina('DCC154', 'Gerência de Projetos').
+add_grade('1128364', 'DCC154').
+
+add_disciplina('DCC168', 'Teste de Software').
+add_grade('1128364', 'DCC168').
+
+add_disciplina('DCC078', 'Aspectos Avançados em Engenharia de Software').
+add_grade('1128364', 'DCC078').
+
+add_disciplina('DCC077', 'Aspectos Avançados em Banco de Dados').
+add_grade('1128364', 'DCC077').
+
+add_disciplina('DCC145', 'Aspectos Organizacionais de Sistemas de Informação').
+add_grade('1128364', 'DCC145').
+
+add_disciplina('DCC196', 'Laboratório de Programação para Dispositivos Móveis').
+add_grade('1128364', 'DCC196').
+
+add_disciplina('DCC166', 'Sistema de Apoio a Decisão').
+add_grade('1128364', 'DCC166').
+
+add_disciplina('DCC165', 'Segurança e Auditoria de Sistemas').
+add_grade('1128364', 'DCC165').
+
+add_disciplina('DCC194', 'TCC em Sistemas de Informação').
+add_grade('1128364', 'DCC194').
+
+add_estudante('001', 'Ian Mcdonnell', '65361').
+add_estudante('002', 'Valentina Dawson', '65361').
+add_estudante('003', 'Shayla Mair', '65361').
+add_estudante('004', 'Blythe Allison', '65361').
+add_estudante('005', 'Giulia Lord', '65361').
+add_estudante('006', 'Clayton Huynh', '1128364').
+add_estudante('007', 'Tamara Milne', '1128364').
+add_estudante('008', 'Bear Walter', '1128364').
+add_estudante('009', 'Bella Frey', '1128364').
+add_estudante('010', 'Macey Connelly', '1128364').
+
+add_cursou('001', 'MAT155', 14).
+add_cursou('001', 'MAT154', 80).
+add_cursou('001', 'QUI125', 94).
+add_cursou('001', 'FIS122', 69).
+add_cursou('001', 'DCC119', 54).
+add_cursou('001', 'DCC120', 78).
+add_cursou('001', 'QUI126', 100).
+add_cursou('001', 'ICE001', 16).
+add_cursou('001', 'MAT156', 27).
+add_cursou('001', 'EST028', 35).
+add_cursou('001', 'FIS073', 44).
+add_cursou('001', 'FIS077', 58).
+add_cursou('001', 'DCC013', 60).
+add_cursou('001', 'DCC107', 71).
+add_cursou('001', 'QUI162', 83).
+add_cursou('001', 'DCC179', 94).
+add_cursou('001', 'MAT157', 06).
+add_cursou('001', 'DCC160', 19).
+add_cursou('001', 'MAT143', 27).
+add_cursou('001', 'DCC059', 39).
+add_cursou('001', 'DCC025', 44).
+add_cursou('001', 'DCC122', 51).
+add_cursou('001', 'MAT158', 62).
+add_cursou('001', 'MAT029', 73).
+add_cursou('001', 'DCC008', 84).
+add_cursou('001', 'DCC012', 96).
+add_cursou('001', 'DCC117', 17).
+add_cursou('001', 'DCC070', 27).
+add_cursou('001', 'DCC065', 39).
+add_cursou('001', 'DCC014', 40).
+add_cursou('001', 'EST029', 59).
+add_cursou('001', 'DCC060', 68).
+add_cursou('001', 'DCC061', 72).
+add_cursou('001', 'DCC062', 81).
+add_cursou('001', 'DCC163', 99).
+add_cursou('001', 'DCC063', 09).
+add_cursou('001', 'DCC174', 01).
+add_cursou('001', 'EADDCC044', 14).
+add_cursou('001', 'DCC042', 52).
+add_cursou('001', 'DCC064', 63).
+add_cursou('001', 'DCC123', 74).
+add_cursou('001', 'DCC055', 95).
+add_cursou('001', 'DCC001', 76).
+add_cursou('001', 'DCC075', 77).
+add_cursou('001', 'DCC110', 68).
+add_cursou('001', 'DCC045', 72).
+add_cursou('001', 'DCC019', 53).
+
+add_cursou('002', 'MAT155', 60).
+add_cursou('002', 'MAT154', 98).
+add_cursou('002', 'QUI125', 76).
+add_cursou('002', 'FIS122', 92).
+add_cursou('002', 'DCC119', 87).
+add_cursou('002', 'DCC120', 67).
+add_cursou('002', 'QUI126', 89).
+add_cursou('002', 'ICE001', 90).
+add_cursou('002', 'MAT156', 65).
+add_cursou('002', 'EST028', 83).
+add_cursou('002', 'FIS073', 98).
+add_cursou('002', 'FIS077', 99).
+add_cursou('002', 'DCC013', 100).
+add_cursou('002', 'DCC107', 80).
+
+add_cursou('003', 'DCC123', 87).
+add_cursou('003', 'DCC055', 54).
+add_cursou('003', 'DCC001', 89).
+add_cursou('003', 'DCC075', 90).
+add_cursou('003', 'DCC110', 54).
+add_cursou('003', 'DCC045', 32).
+add_cursou('003', 'DCC019', 89).
+add_cursou('003', 'DCC013', 90).
+add_cursou('003', 'DCC107', 78).
+add_cursou('003', 'QUI162', 98).
+add_cursou('003', 'DCC179', 93).
+add_cursou('003', 'MAT157', 60).
+add_cursou('003', 'DCC160', 78).
+add_cursou('003', 'MAT143', 90).
+add_cursou('003', 'DCC059', 93).
+add_cursou('003', 'DCC025', 92).
+add_cursou('003', 'DCC122', 85).
+add_cursou('003', 'MAT158', 87).
+add_cursou('003', 'MAT029', 90).
+add_cursou('003', 'DCC008', 77).
+add_cursou('003', 'DCC012', 88).
+add_cursou('003', 'DCC117', 99).
+
+add_cursou('004', 'MAT157', 60).
+add_cursou('004', 'DCC160', 91).
+add_cursou('004', 'MAT143', 72).
+add_cursou('004', 'DCC059', 93).
+add_cursou('004', 'DCC025', 44).
+add_cursou('004', 'DCC122', 15).
+add_cursou('004', 'MAT158', 26).
+add_cursou('004', 'MAT029', 37).
+add_cursou('004', 'DCC008', 48).
+add_cursou('004', 'DCC012', 69).
+add_cursou('004', 'DCC117', 71).
+add_cursou('004', 'DCC070', 72).
+add_cursou('004', 'DCC065', 93).
+add_cursou('004', 'DCC014', 04).
+add_cursou('004', 'EST029', 94).
+add_cursou('004', 'DCC060', 86).
+add_cursou('004', 'DCC061', 27).
+add_cursou('004', 'DCC062', 18).
+add_cursou('004', 'DCC163', 99).
+add_cursou('004', 'DCC063', 09).
+add_cursou('004', 'DCC174', 10).
+
+
+add_cursou('006', 'DCC012', 69).
+add_cursou('006', 'DCC117', 71).
+add_cursou('006', 'DCC070', 72).
+add_cursou('006', 'DCC065', 93).
+add_cursou('006', 'DCC014', 04).
+add_cursou('006', 'EST029', 94).
+add_cursou('006', 'DCC060', 86).
+add_cursou('006', 'DCC061', 27).
+add_cursou('006', 'DCC062', 18).
+add_cursou('006', 'DCC163', 99).
+add_cursou('006', 'DCC063', 09).
+add_cursou('006', 'DCC174', 10).
+
+add_cursou('007', 'MAT154', 80).
+add_cursou('007', 'QUI125', 94).
+add_cursou('007', 'FIS122', 69).
+add_cursou('007', 'DCC119', 54).
+add_cursou('007', 'DCC120', 78).
+add_cursou('007', 'QUI126', 100).
+add_cursou('007', 'ICE001', 16).
+add_cursou('007', 'MAT156', 27).
+add_cursou('007', 'EST028', 35).
+add_cursou('007', 'FIS073', 44).
+add_cursou('007', 'FIS077', 58).
+add_cursou('007', 'DCC013', 60).
+add_cursou('007', 'DCC107', 71).
+add_cursou('007', 'QUI162', 83).
+add_cursou('007', 'DCC179', 94).
+add_cursou('007', 'MAT157', 06).
+add_cursou('007', 'DCC160', 19).
+add_cursou('007', 'MAT143', 27).
+add_cursou('007', 'DCC059', 39).
+add_cursou('007', 'DCC025', 44).
+add_cursou('007', 'DCC122', 51).
+add_cursou('007', 'MAT158', 62).
+add_cursou('007', 'MAT029', 73).
+add_cursou('007', 'DCC008', 84).
+add_cursou('007', 'DCC012', 96).
+
+add_cursou('008', 'DCC133', 67).
+add_cursou('008', 'DCC121', 87).
+add_cursou('008', 'CAD076', 97).
+add_cursou('008', 'EADDCC049', 96).
+add_cursou('008', 'FIN001', 65).
+add_cursou('008', 'DCC146', 78).
+add_cursou('008', 'DCC192', 99).
+add_cursou('008', 'DCC193', 100).
+add_cursou('008', 'DCC049', 67).
+add_cursou('008', 'DCC154', 62).
+add_cursou('008', 'DCC168', 87).
+add_cursou('008', 'DCC078', 98).
+add_cursou('008', 'DCC077', 78).
+add_cursou('008', 'DCC145', 81).
+add_cursou('008', 'DCC196', 91).
+add_cursou('008', 'DCC166', 85).
+add_cursou('008', 'DCC165', 78).
+add_cursou('008', 'DCC194', 73).
+
+add_cursou('009', 'DCC133', 78).
+add_cursou('009', 'DCC121', 90).
+add_cursou('009', 'CAD076', 87).
+add_cursou('009', 'EADDCC049', 72).
+add_cursou('009', 'FIN001', 60).
+add_cursou('009', 'DCC146', 99).
+add_cursou('009', 'DCC192', 44).
+add_cursou('009', 'DCC193', 10).
+add_cursou('009', 'DCC049', 83).
+add_cursou('009', 'DCC154', 84).
+add_cursou('009', 'DCC168', 85).
+add_cursou('009', 'DCC078', 86).
+add_cursou('009', 'DCC077', 87).
+add_cursou('009', 'DCC145', 88).
+add_cursou('009', 'DCC196', 90).
+add_cursou('009', 'DCC166', 99).
+add_cursou('009', 'DCC165', 61).
+add_cursou('009', 'DCC194', 62).
+add_cursou('009', 'EADDCC044', 63).
+add_cursou('009', 'DCC042', 64).
+add_cursou('009', 'DCC064', 65).
+add_cursou('009', 'DCC123', 66).
+add_cursou('009', 'DCC055', 67).
+add_cursou('009', 'DCC001', 68).
+add_cursou('009', 'DCC075', 89).
+add_cursou('009', 'DCC110', 90).
+add_cursou('009', 'DCC045', 32).
+add_cursou('009', 'DCC019', 00).
