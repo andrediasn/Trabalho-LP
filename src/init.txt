@@ -1,0 +1,30 @@
+add_charCode(' ', 0).
+add_charCode('a', 1).
+add_charCode('b', 2).
+add_charCode('c', 3).
+add_charCode('d', 4).
+add_charCode('e', 5).
+add_charCode('f', 6).
+add_charCode('g', 7).
+add_charCode('h', 8).
+add_charCode('i', 9).
+add_charCode('j', 10).
+add_charCode('k', 11).
+add_charCode('l', 12).
+add_charCode('m', 13).
+add_charCode('n', 14).
+add_charCode('o', 15).
+add_charCode('p', 16).
+add_charCode('q', 17).
+add_charCode('r', 18).
+add_charCode('s', 19).
+add_charCode('t', 20).
+add_charCode('u', 21).
+add_charCode('v', 22).
+add_charCode('w', 23).
+add_charCode('x', 24).
+add_charCode('y', 25).
+add_charCode('z', 26).
+
+
+
