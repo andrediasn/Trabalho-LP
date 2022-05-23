@@ -1,18 +1,18 @@
-%% Grupo:
+%% Autores
 
 %% Nome: André Dias Nunes
 %% Matrícula: 201665570C
 
-%% Nome: Gabriel
-%% Matrícula: 
+%% Nome: Gabriel Di iorio Silva
+%% Matrícula: 201765551AC
 
-:- module(charCode_db,
-          [ attach_charCode_db/1,      % +File
-            current_charCode/2,        % ?Char, ?Code
-            add_charCode/2,            % +Char, +Code
-            set_charCode/2,            % +Char, +Code
-            del_charCode/1             % +Char
-          ]).
+:- module(charCode_db, [ 
+                attach_charCode_db/1,      % +File
+                current_charCode/2,        % ?Char, ?Code
+                add_charCode/2,            % +Char, +Code
+                set_charCode/2,            % +Char, +Code
+                del_charCode/1             % +Char
+            ]).
 
 :- use_module(library(persistency)). 
 
@@ -30,7 +30,6 @@ add_charCode(Char, Code) :-
 
 del_charCode(Char) :-
     charCode(Char, _),
-    del_grade(Char, _),
     retractall_charCode(Char, _).
 
 set_charCode(Char, Code) :-

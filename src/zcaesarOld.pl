@@ -3,7 +3,7 @@
 %Encriptação de Cesar
 
 translate(Key, Code1, Code2) :- 
-  ( Code1 =:= 32 -> Aux #= ((Code1+91-0'a)+Key)mod 27
+  ( Code1 =:= 32 -> Aux #= ((Code1 + 91 - 0'a)+Key)mod 27
   ; Aux #= ((Code1-0'a)+Key)mod 27
   ),
   ( Aux =:= 26 -> Code2 #= 32
