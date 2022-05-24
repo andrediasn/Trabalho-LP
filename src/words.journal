@@ -1,0 +1,7 @@
+created(1653426015.5663145).
+assert(word(teste,5)).
+assert(word(ciencia,7)).
+assert(word(computacao,10)).
+assert(word(materia,7)).
+assert(word(teoria,6)).
+assert(word(compiladores,12)).

@@ -1,0 +1,12 @@
+
+    1- Recebo a Frase
+    2- Analiso o caracter que mais aparece
+    3- Pra esse caracter ser o CharFreq qual é a chave?
+    4- Testo a chave.
+    5- Comparo com as palavras salvas.
+    6- match saio.
+
+    v2:
+
+    6- salvo qnts matchs
+    7- retorno o com maior numero de chaves
