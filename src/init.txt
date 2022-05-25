@@ -25,11 +25,14 @@ add_charCode('w', 23),
 add_charCode('x', 24),
 add_charCode('y', 25),
 add_charCode('z', 26).
-add_word('teste'),
-add_word('ciencia'),
-add_word('computacao'),
-add_word('materia'),
-add_word('teoria'),
-add_word('compiladores').
+add_word("teste"),
+add_word("ciencia"),
+add_word("computacao"),
+add_word("materia"),
+add_word("teoria"),
+add_word("palavra"),
+add_word("compiladores"),
+add_word("linguagem"),
+add_word("programacao").
 
 

@@ -16,7 +16,7 @@
 
 :- use_module(library(persistency)). 
 
-:- persistent word(char:atom, tam:integer).
+:- persistent word(char:list, tam:integer).
 
 attach_word_db(File) :-
     db_attach(File, []).
@@ -26,8 +26,7 @@ current_word(Char, Tam) :-
 
 add_word(Char) :-
     not(word(Char, _)),
-    string_chars(Char, S),
-    size(S, Tam),
+    size(Char, Tam),
     assert_word(Char, Tam).
 
 del_word(Char) :-

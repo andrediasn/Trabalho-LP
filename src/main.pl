@@ -33,7 +33,10 @@ string2Code(S,L) :-
         string_chars(S, Aux)
     ).
 
-
+tes(X) :-
+        wordSave(L),
+        splitWords(X, K),
+        commonList(K,L). 
 
 
 %% ====================== Predicados Úteis =======================================
@@ -81,12 +84,41 @@ maxFreqChar(S, MostCommon, Freq) :-
     last(SFreqs, [Freq, MostCommon]).           % Ultima posição é o mais comum
 
 % Cria uma lista de elementos
-list_concat([],L,L).
-list_concat([X1|L1],L2,[X1|L3]) :- 
-    list_concat(L1,L2,L3).
+listConcat([],L,L).
+listConcat([X1|L1],L2,[X1|L3]) :- 
+    listConcat(L1,L2,L3).
 
+% Cria uma lista com as Palavras salvas
+wordSave(L) :- 
+    findall(W, current_word(W,_),L).
 
+% Extrai palavras de uma lista
+split(In, _Sep, [In]).
+split(In, Sep, [Left|Rest]) :-
+    append(Left, [Sep|Right], In), 
+    !, 
+    split(Right, Sep, Rest).
+splitWords(L,X) :-
+    string_chars(L, L1),
+    findall(A,split(L1,' ',A),B),
+    myLast(X,B).
 
-    
-    
+% Retorna ultimo elemento da lista
+myLast(X,[X]).
+myLast(X,[_|L]) :- myLast(X,L).
+
+% Verifica se existe elemento na lista
+contains(X, [X|_]).
+contains(X, [_|T]) :- 
+    contains(X, T).
+
+% Busca interceção entre duas listas
+intersection([X|Y], M, [X|Z]) :-
+    contains(X,M),
+    intersection(Y,M,Z).
+intersection([X|Y],M,Z) :-
+    \+ contains(X,M),
+    intersection(Y,M,Z).
+intersection([],M,[]).
+
 
