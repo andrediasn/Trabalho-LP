@@ -107,6 +107,11 @@ splitWords(L,X) :-
 myLast(X,[X]).
 myLast(X,[_|L]) :- myLast(X,L).
 
+% Remove ultimo caractere da Lista
+withoutLast([_], []).
+withoutLast([H|T], [X|R]) :-     % Input, Output
+    withoutLast(T, R).
+
 % Verifica se existe elemento na lista
 contains(X, [X|_]).
 contains(X, [_|T]) :- 
@@ -120,5 +125,7 @@ intersection([X|Y],M,Z) :-
     \+ contains(X,M),
     intersection(Y,M,Z).
 intersection([],M,[]).
+
+
 
 

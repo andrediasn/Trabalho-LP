@@ -1,4 +1,4 @@
-created(1653450343.4827614).
+created(1653519192.9555202).
 assert(word([t,e,s,t,e],5)).
 assert(word([c,i,e,n,c,i,a],7)).
 assert(word([c,o,m,p,u,t,a,c,a,o],10)).
@@ -8,3 +8,4 @@ assert(word([p,a,l,a,v,r,a],7)).
 assert(word([c,o,m,p,i,l,a,d,o,r,e,s],12)).
 assert(word([l,i,n,g,u,a,g,e,m],9)).
 assert(word([p,r,o,g,r,a,m,a,c,a,o],11)).
+assert(word([b,o,l,s,o,n,a,r,o],9)).

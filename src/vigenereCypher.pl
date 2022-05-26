@@ -10,7 +10,10 @@
             [ 
                 vigenere/3,         % +Keys, ?S1, ?S2
                 cypherV/5,          % +Keys, +KeyTam, ?S1, ?S2 , +N
-                charCypherV/3       % +Key, ?Char1, ?Char2
+                charCypherV/3,       % +Key, ?Char1, ?Char2
+                pairingLists/3,
+                completList/4,
+                completeListAux/3
             ]).
 
 charCypherV(Key, Char1, Char2) :-
@@ -38,3 +41,40 @@ vigenere(KeyString, S1, S2) :-
     cypherV(KeyCodes, KeyTam, L1, L2, N),
     string_chars(S1, L1),
     string_chars(S2, L2).
+
+
+    %% ========================= Vigenere Breaker =====================
+
+% Completa uma lista repetindo seus caracteres com o tamanho da outra Lista
+/* pairingLists(L1, L2, Output) :-
+    length(L2, Tam),
+    completList(L1, L1, Output, Tam).
+
+
+completList(_,_,_,0).
+completList(List, [], [H|Y], N) :-
+    completList(List, List, [H|Y], N).
+completList(List, [H|T], [H|Y], N) :-
+    N1 is N - 1,
+    completList(List, T, Y, N1).
+*/
+
+
+completeListAux(L, 0, R).
+completeListAux(L, N, R) :-
+    listConcat(R,L,R1),
+    N1 is N - 1,
+    completeListAux(L, N1, R1).
+
+completList(L, T1, T2, R) :-
+    Q is integer(T1/T2),
+    E is T1 - (Q*T2),
+    completeListAux(L, Q, R).
+
+
+
+pairingLists(L1, L2, Output) :-
+    length(L1, Tam1),
+    length(L2, Tam2),
+    ( Tam2 < Tam1 -> completList(L2, Tam1, Tam2, LR2) ; string_chars(L2, LR2 ) ).
+    maplist(L1, L2, Output).

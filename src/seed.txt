@@ -25,6 +25,8 @@ add_charCode('w', 23),
 add_charCode('x', 24),
 add_charCode('y', 25),
 add_charCode('z', 26).
+
+
 add_word("teste"),
 add_word("ciencia"),
 add_word("computacao"),
