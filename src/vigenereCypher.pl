@@ -13,10 +13,32 @@
                 charCypherV/3,       % +Key, ?Char1, ?Char2
                 pairingLists/3,
                 completList/4,
-                completeListAux/3
+                completeListAux/3,
+                pairingListsAux/3
             ]).
 
-charCypherV(Key, Char1, Char2) :-
+
+
+    %%%%%%%%%%%%%%%%%% Vigenere Codificador/Decodificador %%%%%%%%%%%%%%%%%%%%%%%%
+
+vigenere(KeyString, S1, S2) :-
+    ( nonvar(S1) -> string_chars(S1, L1) ; nonvar(S2) -> string_chars(S2, L2) ),  % Garante que seja lista
+    string2Code(KeyString, KeyCodes),                   % Transfora lista de chars, em lista de codes
+    size(KeyCodes, KeyTam),                             % Busca Tamanho da lista
+    N is 1,                                             % Seta um contador
+    cypherV(KeyCodes, KeyTam, L1, L2, N),               % Chama a cifra
+    string_chars(S1, L1),
+    string_chars(S2, L2).                               % Converte para saida em String
+
+
+cypherV(KeyCodes, KeyTam, [H1|T1], [H2|T2], N) :-       % List de codes, Tamanho, Decifrado, Cifrado
+    nth1(N, KeyCodes, Key),                             % Pega o a chave da vez (definido pelo contador)  da lista de chaves
+    charCypherV(Key, H1, H2),                           % Envia para a cifra de char
+    ( N =:= KeyTam -> N1 is 1 ; N1 is N+1),             % Se o contador é o ultimo elemento da lista de chaves, volta ao começo
+    cypherV(KeyCodes, KeyTam, T1, T2, N1).              % Chama a recursividade
+cypherV(_,_,[],[],_).                                   % Encerra quando a lista de entrada acaba
+
+charCypherV(Key, Char1, Char2) :-                       % Segue a mesma logica do Caesar
     ( 
         nonvar(Char1) -> code(Char1, Code1),
         Code2 is (Code1+Key)mod 27
@@ -26,55 +48,29 @@ charCypherV(Key, Char1, Char2) :-
     code(Char1, Code1),
     code(Char2, Code2). 
 
-cypherV(_,_,[],[],_).
-cypherV(KeyCodes, KeyTam, [H1|T1], [H2|T2], N) :-
-    nth1(N, KeyCodes, Key),
-    charCypherV(Key, H1, H2),
-    ( N =:= KeyTam -> N1 is 1 ; N1 is N+1),
-    cypherV(KeyCodes, KeyTam, T1, T2, N1).
 
-vigenere(KeyString, S1, S2) :-
-    ( nonvar(S1) -> string_chars(S1, L1) ; nonvar(S2) -> string_chars(S2, L2) ),
-    string2Code(KeyString, KeyCodes),
-    size(KeyCodes, KeyTam),
-    N is 1,
-    cypherV(KeyCodes, KeyTam, L1, L2, N),
-    string_chars(S1, L1),
-    string_chars(S2, L2).
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%% Vigenere Breaker %%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+%%%%%%%%%%%% Primeiro predicado pedido:  
+%Relaciona duas listas criando uma nova com a paridade de cada elemento das outras duas
+pairingLists(L1, L2, Output) :-
+    length(L1, Tam1),                                           % Calcula tamanho das listas
+    length(L2, Tam2),                                           % Se Tam2 < Tam1 envia a lista2 para se autocompletar ate o tamanho da primeira lista
+    ( Tam2 < Tam1 -> completList(L2, L2, LR2, L1) ; string_chars(L2, LR2 ) ),
+    pairingListsAux(L1, LR2, Output).                           % Envia para criar uma nova lista de pares
 
-    %% ========================= Vigenere Breaker =====================
+% Cria uma lista de pares a partir de duas listas de tamanhos iguais.
+pairingListsAux([H1|T1], [H2|T2], [[H1,H2]|T]) :-       % Output recebe na Head uma lista de com as Heads das outras listas
+    pairingListsAux(T1, T2, T).                           
+pairingListsAux([H1|[]],[H2|[]],[[H1,H2]]).             % Se encerra quando for o ultimo elemento das listas
+% teste: %%  pairingListsAux([a,b,c],[b,c,d],X).
 
 % Completa uma lista repetindo seus caracteres com o tamanho da outra Lista
-/* pairingLists(L1, L2, Output) :-
-    length(L2, Tam),
-    completList(L1, L1, Output, Tam).
-
-
-completList(_,_,_,0).
-completList(List, [], [H|Y], N) :-
-    completList(List, List, [H|Y], N).
-completList(List, [H|T], [H|Y], N) :-
-    N1 is N - 1,
-    completList(List, T, Y, N1).
-*/
-
-
-completeListAux(L, 0, R).
-completeListAux(L, N, R) :-
-    listConcat(R,L,R1),
-    N1 is N - 1,
-    completeListAux(L, N1, R1).
-
-completList(L, T1, T2, R) :-
-    Q is integer(T1/T2),
-    E is T1 - (Q*T2),
-    completeListAux(L, Q, R).
-
-
-
-pairingLists(L1, L2, Output) :-
-    length(L1, Tam1),
-    length(L2, Tam2),
-    ( Tam2 < Tam1 -> completList(L2, Tam1, Tam2, LR2) ; string_chars(L2, LR2 ) ).
-    maplist(L1, L2, Output).
+completList(List, [H|T], [H|Y], [N|N1]) :-                   % Lista, Elemento da lista, Resultado, Tamanho esperado
+    completList(List, T, Y, N1).                             
+completList(List, [], Out, N) :-                             % Quando a minha lista input se encerra Envio novamente a Lista para a recursividade,
+    completList(List, List, Out, N).                         % Voltando assim ao primeiro elemento da lista input
+completList(List,[H|T],[H|[]],[N|[]]).                       % Encerra quando a Tail do meu contator é vazio.
+% Teste: %% completList([a,b],[a,b],X,[1,2,3,4,5,6,7]).

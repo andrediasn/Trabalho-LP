@@ -15,6 +15,8 @@
 
 %% ========================= Caesar Cypher ===========================
 
+
+
 cypherC(Key, Char1, Char2) :-
     (nonvar(Char1) ->                     % Se recebeu o para Cncode
         code(Char1, Code1),              % Pega o code do Char1

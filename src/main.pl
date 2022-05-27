@@ -61,7 +61,7 @@ teste(Input, KC, KV) :-
     format('~n Vigenere Encode: ~w', [X]),
     format('~n Vigenere Decode: ~w', [Y]).
 
-%% teste("aaaaaaaa que linguagem de merda", d, "odio").
+%% teste("aaaaaaaa que linguagem de booa", d, "acabou").
 
 % Conta quantas vezes um Char aparece na String
 countChar([], _, 0).
