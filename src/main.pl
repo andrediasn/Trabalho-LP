@@ -7,11 +7,11 @@
 %% Matrícula: 201765551AC
 
 %% Importação dos Módulos
-:- use_module(library(clpfd)).
-:- use_module(charCode_db).
-:- use_module(word_db).
-:- use_module(caesarCypher).
-:- use_module(vigenereCypher).
+:- use_module(library(clpfd)).  % Biblioteca para operações aritiméticas 
+:- use_module(charCode_db).     % BD dos codigigos das letras
+:- use_module(word_db).         % BD das palavras salvas
+:- use_module(caesarCypher).    % Modulo da cifra de César
+:- use_module(vigenereCypher).  % Modulo da cifra de Vegenere
 
 %% Definição dos arquivos de persistência
 :- attach_charCode_db('charCodes.journal').
@@ -21,7 +21,7 @@
 :- set_prolog_flag(answer_write_options,[max_depth(0)]).
 :- set_prolog_flag(double_quotes, chars).
 
-%% ==============   Implementação das Consultas ==================================
+    %%%%%%%%%%%%%%%%%%% Predicados Pedidos %%%%%%%%%%%%%%%%%%%%%%
 code(Char, Code) :-
     current_charCode(Char, Code).
 
@@ -33,22 +33,10 @@ string2Code(S,L) :-
         string_chars(S, Aux)
     ).
 
-tes(X) :-
-        wordSave(L),
-        splitWords(X, K),
-        commonList(K,L). 
-
-
-%% ====================== Predicados Úteis =======================================
-
-% Calcula o tamanho de uma lista
-size([],0).
-size([_|T],N) :-            
-    size(T,N1), 
-    N is N1+1.
+    %%%%%%%%%%%%%%%%%%% Predicados Utilitários %%%%%%%%%%%%%%%%%%%%%%
 
 %Função para testar as cifras
-teste(Input, KC, KV) :-                         
+cyphers(Input, KC, KV) :-                   % Input, Caesar Key, Vigenere Key                       
     caesar(KC, Input, A),
     caesar(d, B, A),
     vigenere(KV, Input, X),
@@ -60,8 +48,17 @@ teste(Input, KC, KV) :-
     format('~n~n Vigenere Key: ~w', [KV]),
     format('~n Vigenere Encode: ~w', [X]),
     format('~n Vigenere Decode: ~w', [Y]).
-
 %% teste("aaaaaaaa que linguagem de booa", d, "acabou").
+
+% Cria uma lista com as Palavras salvas
+wordSave(L) :- 
+    findall(W, current_word(W,_),L).
+
+% Calcula o tamanho de uma lista  -- Deprecated (Usar length no lugar)
+size([],0).
+size([_|T],N) :-            
+    size(T,N1), 
+    N is N1+1.
 
 % Conta quantas vezes um Char aparece na String
 countChar([], _, 0).
@@ -87,10 +84,6 @@ maxFreqChar(S, MostCommon, Freq) :-
 listConcat([],L,L).
 listConcat([X1|L1],L2,[X1|L3]) :- 
     listConcat(L1,L2,L3).
-
-% Cria uma lista com as Palavras salvas
-wordSave(L) :- 
-    findall(W, current_word(W,_),L).
 
 % Extrai palavras de uma lista
 split(In, _Sep, [In]).

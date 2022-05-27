@@ -8,13 +8,12 @@
 
 :- module(vigenereCypher,
             [ 
-                vigenere/3,         % +Keys, ?S1, ?S2
-                cypherV/5,          % +Keys, +KeyTam, ?S1, ?S2 , +N
+                vigenere/3,          % +Keys, ?S1, ?S2
+                cypherV/5,           % +Keys, +KeyTam, ?S1, ?S2 , +Contador
                 charCypherV/3,       % +Key, ?Char1, ?Char2
-                pairingLists/3,
-                completList/4,
-                completeListAux/3,
-                pairingListsAux/3
+                pairingLists/3,      % +List1, +List2, ?Result
+                pairingListsAux/3,   % +List1, +List2, ?Result
+                completList/4        % +List, +List, ?Result, +ListContador
             ]).
 
 
@@ -60,6 +59,7 @@ pairingLists(L1, L2, Output) :-
     length(L2, Tam2),                                           % Se Tam2 < Tam1 envia a lista2 para se autocompletar ate o tamanho da primeira lista
     ( Tam2 < Tam1 -> completList(L2, L2, LR2, L1) ; string_chars(L2, LR2 ) ),
     pairingListsAux(L1, LR2, Output).                           % Envia para criar uma nova lista de pares
+% teste: pairingLists([a,b,c,d,g,t,e,y,u],[b,c,d],X).
 
 % Cria uma lista de pares a partir de duas listas de tamanhos iguais.
 pairingListsAux([H1|T1], [H2|T2], [[H1,H2]|T]) :-       % Output recebe na Head uma lista de com as Heads das outras listas
