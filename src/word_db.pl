@@ -26,7 +26,7 @@ current_word(Char, Tam) :-
 
 add_word(Char) :-
     not(word(Char, _)),
-    size(Char, Tam),
+    length(Char, Tam),
     assert_word(Char, Tam).
 
 del_word(Char) :-

@@ -25,7 +25,15 @@ add_charCode('v', 23),
 add_charCode('w', 24),
 add_charCode('x', 25),
 add_charCode('y', 26),
-add_charCode('z', 27).
+add_charCode('z', 27),
+add_charCode('á', 28),
+add_charCode('à', 29),
+add_charCode('ã', 30),
+add_charCode('é', 31),
+add_charCode('ê', 32),
+add_charCode('í', 33),
+add_charCode('ô', 34),
+add_charCode('ú', 35)
 
 add_charCode('A', 28),
 add_charCode('B', 29),

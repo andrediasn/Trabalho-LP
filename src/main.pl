@@ -69,7 +69,7 @@ countChar([H|T], Char, Freq) :-                  %Conta a frequencia daquele Cha
     ( A =:= B -> Freq is F1 + 1 ; Freq is F1).
 
 % Retorna o Char mais frequente da String
-maxFreqChar(S, MostCommon, Freq) :-
+maxFreqChar(S, MostCommon) :-
     string_chars(S, C),                         
     sort(C, Uniq),                              % Ordena removendo caracteres repetidos
     findall([Freq, X], (                        % Para cada elemento unico
@@ -102,7 +102,7 @@ myLast(X,[_|L]) :- myLast(X,L).
 
 % Remove ultimo caractere da Lista
 withoutLast([_], []).
-withoutLast([H|T], [X|R]) :-     % Input, Output
+withoutLast([_|T], [_|R]) :-     % Input, Output
     withoutLast(T, R).
 
 % Verifica se existe elemento na lista
@@ -117,7 +117,8 @@ intersection([X|Y], M, [X|Z]) :-
 intersection([X|Y],M,Z) :-
     \+ contains(X,M),
     intersection(Y,M,Z).
-intersection([],M,[]).
+intersection([],_,[]).
+
 
 
 
