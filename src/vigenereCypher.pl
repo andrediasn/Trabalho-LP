@@ -37,9 +37,9 @@ cypherV(_,_,[],[],_).                                   % Encerra quando a lista
 charCypherV(Key, Char1, Char2) :-                       % Segue a mesma logica do Caesar
     ( 
         nonvar(Char1) -> code(Char1, Code1),
-        Code2 is (Code1+Key)mod 27
+        Code2 is (Code1+Key)mod 112
         ; nonvar(Char2) -> code(Char2, Code2),
-        Code1 is (Code2-Key+27)mod 27
+        Code1 is (Code2-Key+112)mod 112
     ),
     code(Char1, Code1),
     code(Char2, Code2). 

@@ -10,7 +10,7 @@
                 attach_charCode_db/1,      % +File
                 current_charCode/2,        % ?Char, ?Code
                 add_charCode/2,            % +Char, +Code
-                set_charCode/2,            % +Char, +Code
+                set_charCode/4,            % +Char, +Code
                 del_charCode/1             % +Char
             ]).
 

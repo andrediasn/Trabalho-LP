@@ -38,7 +38,7 @@ string2Code(S,L) :-
 %Função para testar as cifras
 cyphers(Input, KC, KV) :-                   % Input, Caesar Key, Vigenere Key                       
     caesar(KC, Input, A),
-    caesar(d, B, A),
+    caesar(KC, B, A),
     vigenere(KV, Input, X),
     vigenere(KV, Y, X),
 
@@ -49,6 +49,7 @@ cyphers(Input, KC, KV) :-                   % Input, Caesar Key, Vigenere Key
     format('~n Vigenere Encode: ~w', [X]),
     format('~n Vigenere Decode: ~w', [Y]).
 %% cyphers("aaaaaaaa que linguagem de booa", d, "acabou").
+%% cyphers("Aa agora é testar com Maisculas nessa Programação, pois não sei",F,"Teste!").
 
 % Cria uma lista com as Palavras salvas
 wordSave(L) :- 
@@ -99,6 +100,30 @@ splitWords(L,X) :-
 % Retorna ultimo elemento da lista
 myLast(X,[X]).
 myLast(X,[_|L]) :- myLast(X,L).
+
+% Formata os caracteres não necessarios
+
+cleaningChars(Input, Output) :-
+    cleaningCharsAux(Input, ' ', Output).
+
+cleaningCharsAux([], Elem, [Elem|[]]).
+cleaningCharsAux([H|TI], Elem, [Elem|TO]) :-
+    code(H, Code),
+    format('~n H: ~w Code: ~w',[H, Code]),
+    (Code > 78 ->                               % Se for pontuação, substituo por espaço
+        cleaningCharsAux(TI, ' ', TO)
+    ;  
+        Code > 39 ->                            % Se for maiscula, transformo pra minuscula
+            X is Code - 39,
+            code(C, X),
+            cleaningCharsAux(TI, C, TO)
+            ;
+                cleaningCharsAux(TI, H, TO)     % Minuscula ou espaço, salvo
+    ).
+
+
+
+% Acrescenta eleme
 
 % Remove ultimo caractere da Lista  / Deprecated
 withoutLast([_|[]], []).

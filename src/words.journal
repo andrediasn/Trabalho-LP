@@ -1,4 +1,4 @@
-created(1653856006.6800163).
+created(1653860852.6401901).
 assert(word([t,e,s,t,e])).
 assert(word([c,i,ê,n,c,i,a])).
 assert(word([c,o,m,p,u,t,a,ç,ã,o])).
