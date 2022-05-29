@@ -52,7 +52,7 @@ cyphers(Input, KC, KV) :-                   % Input, Caesar Key, Vigenere Key
 
 % Cria uma lista com as Palavras salvas
 wordSave(L) :- 
-    findall(W, current_word(W,_),L).
+    findall(W, current_word(W),L).
 
 % Calcula o tamanho de uma lista  -- Deprecated (Usar length no lugar)
 size([],0).

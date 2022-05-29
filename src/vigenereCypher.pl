@@ -52,12 +52,13 @@ charCypherV(Key, Char1, Char2) :-                       % Segue a mesma logica d
 %%%%%%%%%%%% Primeiro predicado pedido:  
 % Um predicado de aridade 3 que relaciona duas listas com uma terceira lista de pares, 
 % na qual cada par ́e formado por um elemento de cada uma das lista.
+% Teste -> pairingLists([a,b,c,d,g,t,e,y,u],[b,c,d],X).
 pairingLists(L1, L2, Output) :-
     length(L1, Tam1),                                           % Calcula tamanho das listas
     length(L2, Tam2),                                           % Se Tam2 < Tam1 envia a lista2 para se autocompletar ate o tamanho da primeira lista
     ( Tam2 < Tam1 -> completList(L2, L2, LR2, L1) ; string_chars(L2, LR2 ) ),
     pairingListsAux(L1, LR2, Output).                           % Envia para criar uma nova lista de pares
-% teste -> pairingLists([a,b,c,d,g,t,e,y,u],[b,c,d],X).
+
 
 % Cria uma lista de pares a partir de duas listas de tamanhos iguais.
 pairingListsAux([H1|T1], [H2|T2], [[H1,H2]|T]) :-       % Output recebe na Head uma lista de com as Heads das outras listas

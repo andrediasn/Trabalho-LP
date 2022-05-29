@@ -1,4 +1,4 @@
-created(1653854255.394118).
+created(1653856006.6409767).
 assert(charCode(' ',0)).
 assert(charCode(a,1)).
 assert(charCode(b,2)).
@@ -76,7 +76,6 @@ assert(charCode('Ô',73)).
 assert(charCode('Õ',74)).
 assert(charCode('Ú',75)).
 assert(charCode('Ü',76)).
-
 assert(charCode(!,77)).
 assert(charCode('"',78)).
 assert(charCode(#,79)).
@@ -99,3 +98,12 @@ assert(charCode(>,96)).
 assert(charCode(?,97)).
 assert(charCode(@,98)).
 assert(charCode('[',99)).
+assert(charCode(']',101)).
+assert(charCode(^,102)).
+assert(charCode('_',103)).
+assert(charCode(º,104)).
+assert(charCode('{',105)).
+assert(charCode('|',106)).
+assert(charCode('}',107)).
+assert(charCode(~,108)).
+assert(charCode(ª,109)).
