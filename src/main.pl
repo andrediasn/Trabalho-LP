@@ -48,7 +48,7 @@ cyphers(Input, KC, KV) :-                   % Input, Caesar Key, Vigenere Key
     format('~n~n Vigenere Key: ~w', [KV]),
     format('~n Vigenere Encode: ~w', [X]),
     format('~n Vigenere Decode: ~w', [Y]).
-%% teste("aaaaaaaa que linguagem de booa", d, "acabou").
+%% cyphers("aaaaaaaa que linguagem de booa", d, "acabou").
 
 % Cria uma lista com as Palavras salvas
 wordSave(L) :- 
@@ -101,7 +101,7 @@ myLast(X,[X]).
 myLast(X,[_|L]) :- myLast(X,L).
 
 % Remove ultimo caractere da Lista  / Deprecated
-withoutLast([H|[]], []).
+withoutLast([_|[]], []).
 withoutLast([H|T], [H|R]) :-     % Input, Output
     withoutLast(T, R).
 %Teste -> withoutLast([a,b,c],X).

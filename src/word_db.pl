@@ -10,7 +10,7 @@
                 attach_word_db/1,      % +File
                 current_word/2,        % ?Char, ?Tam
                 add_word/1,            % +Char
-                set_word/1,            % +Char
+                set_word/2,            % +Char
                 del_word/1             % +Char
             ]).
 

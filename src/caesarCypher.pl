@@ -41,6 +41,14 @@ caesar(KeyChar, S1, S2) :-
 
 %% ========================= Caesar Breaker =====================
 
+%Teste -> decypherCaesar("eeeeeeeeduyidpmrkyekiqdhidfsse").
+decypherCaesar(Input) :- 
+    maxFreqChar(Input, CharFreq),
+    code(CharFreq, CodeFreq),
+    listConcat([],[1,5,15,19,18,9,14,4,13,21,20,3,12,16,22,7,8,17,2,6,26,10,24,11,23,25,0],ListFreqPort),
+    wordSave(Words),
+    decypherC(Input, CodeFreq, ListFreqPort, Words).
+
 decypherC(_,_,[],_).
 decypherC(Input, C, [H|T], Words) :-
     KeyCode is (C - H + 27)mod 27,
@@ -55,9 +63,4 @@ decypherC(Input, C, [H|T], Words) :-
         decypherC(Input, C, T, Words)
     ).
 
-decypherCaesar(Input) :- 
-    maxFreqChar(Input, CharFreq),
-    code(CharFreq, CodeFreq),
-    listConcat([],[1,5,15,19,18,9,14,4,13,21,20,3,12,16,22,7,8,17,2,6,26,10,24,11,23,25,0],ListFreqPort),
-    wordSave(Words),
-    decypherC(Input, CodeFreq, ListFreqPort, Words).
+
