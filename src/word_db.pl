@@ -33,7 +33,6 @@ del_word(Char) :-
     word(Char, _),
     retractall_word(Char, _).
 
-set_word(Char) :-
-    word(Char, _),
-    retractall_word(Char, _),
-    add_word(Char).
+set_word(Old, New) :-
+    retractall_word(Old, _),
+    add_word(New).

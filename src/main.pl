@@ -100,10 +100,11 @@ splitWords(L,X) :-
 myLast(X,[X]).
 myLast(X,[_|L]) :- myLast(X,L).
 
-% Remove ultimo caractere da Lista
-withoutLast([_], []).
-withoutLast([_|T], [_|R]) :-     % Input, Output
+% Remove ultimo caractere da Lista  / Deprecated
+withoutLast([H|[]], []).
+withoutLast([H|T], [H|R]) :-     % Input, Output
     withoutLast(T, R).
+%Teste -> withoutLast([a,b,c],X).
 
 % Verifica se existe elemento na lista
 contains(X, [X|_]).

@@ -26,3 +26,4 @@ assert(charCode(w,23)).
 assert(charCode(x,24)).
 assert(charCode(y,25)).
 assert(charCode(z,26)).
+

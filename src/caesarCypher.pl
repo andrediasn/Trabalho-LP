@@ -8,9 +8,7 @@
 
 :- module(caesarCypher, [ 
               caesar/3,       % +Key, ?S1, ?S2
-              cypherC/3,      % +Key, ?Char1, ?Char2
-              decypherCaesar/1,
-              decypherC/4
+              decypherCaesar/1
             ]).
 
 %% ========================= Caesar Cypher ===========================

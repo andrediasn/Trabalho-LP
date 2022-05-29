@@ -26,13 +26,13 @@ current_charCode(Char, Code) :-
 
 add_charCode(Char, Code) :-
     not(charCode(Char, _)),
+    not(charCode(_, Code)),
     assert_charCode(Char, Code).
 
 del_charCode(Char) :-
     charCode(Char, _),
     retractall_charCode(Char, _).
 
-set_charCode(Char, Code) :-
-    charCode(Char, _),
-    retractall_charCode(Char, _),
-    add_charCode(Char, Code).
+set_charCode(OldChar, OldCode, NewChar, NewCode) :-
+    retractall_charCode(OldChar, OldCode),
+    add_charCode(NewChar, NewCode).
