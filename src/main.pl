@@ -48,8 +48,7 @@ cyphers(Input, KC, KV) :-                   % Input, Caesar Key, Vigenere Key
     format('~n~n Vigenere Key: ~w', [KV]),
     format('~n Vigenere Encode: ~w', [X]),
     format('~n Vigenere Decode: ~w', [Y]).
-%% cyphers("aaaaaaaa que linguagem de booa", d, "acabou").
-%% cyphers("Aa agora é testar com Maisculas nessa Programação, pois não sei",F,"Teste!").
+%% cyphers("Chegando nos finalmentes do Próximo! Deu Certo?",g,"acabou").
 
 % Cria uma lista com as Palavras salvas
 wordSave(L) :- 

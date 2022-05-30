@@ -10,39 +10,213 @@ add_charCode(' ', 0),
 add_charCode('a', 1),
 add_charCode('b', 2),
 add_charCode('c', 3),
-add_charCode('d', 4),
-add_charCode('e', 5),
-add_charCode('f', 6),
-add_charCode('g', 7),
-add_charCode('h', 8),
-add_charCode('i', 9),
-add_charCode('j', 10),
-add_charCode('k', 11),
-add_charCode('l', 12),
-add_charCode('m', 13),
-add_charCode('n', 14),
-add_charCode('o', 15),
-add_charCode('p', 16),
-add_charCode('q', 17),
-add_charCode('r', 18),
-add_charCode('s', 19),
-add_charCode('t', 20),
-add_charCode('u', 21),
-add_charCode('v', 22),
-add_charCode('w', 23),
-add_charCode('x', 24),
-add_charCode('y', 25),
-add_charCode('z', 26).
+add_charCode('ç', 4),
+add_charCode('d', 5),
+add_charCode('e', 6),
+add_charCode('f', 7),
+add_charCode('g', 8),
+add_charCode('h', 9),
+add_charCode('i', 10),
+add_charCode('j', 11),
+add_charCode('k', 12),
+add_charCode('l', 13),
+add_charCode('m', 14),
+add_charCode('n', 15),
+add_charCode('o', 16),
+add_charCode('p', 17),
+add_charCode('q', 18),
+add_charCode('r', 19),
+add_charCode('s', 20),
+add_charCode('t', 21),
+add_charCode('u', 22),
+add_charCode('v', 23),
+add_charCode('w', 24),
+add_charCode('x', 25),
+add_charCode('y', 26),
+add_charCode('z', 27),
+add_charCode('á', 28),
+add_charCode('à', 29),
+add_charCode('â', 30),
+add_charCode('ã', 31),
+add_charCode('é', 32),
+add_charCode('ê', 33),
+add_charCode('í', 34),
+add_charCode('ó', 35),
+add_charCode('ô', 36),
+add_charCode('õ', 37),
+add_charCode('ú', 38),
+add_charCode('ü', 39).
+add_charCode('A', 40),
+add_charCode('B', 41),
+add_charCode('C', 42),
+add_charCode('Ç', 43),
+add_charCode('D', 44),
+add_charCode('E', 45),
+add_charCode('F', 46),
+add_charCode('G', 47),
+add_charCode('H', 48),
+add_charCode('I', 49),
+add_charCode('J', 50),
+add_charCode('K', 51),
+add_charCode('L', 52),
+add_charCode('M', 53),
+add_charCode('N', 54),
+add_charCode('O', 55),
+add_charCode('P', 56),
+add_charCode('Q', 57),
+add_charCode('R', 58),
+add_charCode('S', 59),
+add_charCode('T', 60),
+add_charCode('U', 61),
+add_charCode('V', 62),
+add_charCode('W', 63),
+add_charCode('X', 64),
+add_charCode('Y', 65),
+add_charCode('Z', 66),
+add_charCode('Á', 67),
+add_charCode('À', 68),
+add_charCode('Â', 69),
+add_charCode('Ã', 70),
+add_charCode('É', 71),
+add_charCode('Ê', 72),
+add_charCode('Í', 73),
+add_charCode('Ó', 74),
+add_charCode('Ô', 75),
+add_charCode('Õ', 76),
+add_charCode('Ú', 77),
+add_charCode('Ü', 78).
+add_charCode('!', 79),
+add_charCode('~', 80),
+add_charCode('#', 81),
+add_charCode('$', 82),
+add_charCode('%', 83),
+add_charCode('&', 84),
+add_charCode('}', 85),
+add_charCode('(', 86),
+add_charCode(')', 87),
+add_charCode('*', 88),
+add_charCode('+', 89),
+add_charCode(',', 90),
+add_charCode('-', 91),
+add_charCode('.', 92),
+add_charCode('|', 93),
+add_charCode(':', 94),
+add_charCode(';', 95),
+add_charCode('<', 96),
+add_charCode('=', 97),
+add_charCode('>', 98),
+add_charCode('?', 99),
+add_charCode('@', 100),
+add_charCode('[', 101),
+add_charCode('ª', 102).
+add_charCode(']', 103),
+add_charCode('^', 104),
+add_charCode('_', 105),
+add_charCode('º', 106),
+add_charCode('{', 107).
+add_word("teste").
+add_word("ciência").
+add_word("computação").
+add_word("materia").
+add_word("teoria").
+add_word("palavra").
+add_word("compiladores").
+add_word("linguagem").
+add_word("programação").
+add_word("luto").
+add_word("cirurgia").
+add_word("cadeia").
+add_word("lagarto").
+add_word("estádio").
+add_word("abelha").
+add_word("ouça").
+add_word("unicórnio").
+add_word("avó").
+add_word("espalhar").
+add_word("condenado").
+add_word("calçada").
+add_word("confortável").
+add_word("dureza").
+add_word("flamejante").
+add_word("estou").
+add_word("testando").
+add_word("Ferramentas").
+add_word("César").
+add_word("Página").
+add_word("Escova").
+add_word("Obeso").
+add_word("Discar").
+add_word("Chocolate").
+add_word("Continente").
+add_word("Carteira").
+add_word("Transylvania").
+add_word("Futuro").
+add_word("Gosto").
+add_word("próximo").
+add_word("Camelo").
+add_word("Conectar").
+add_word("Rimmel").
+add_word("Turistas").
+add_word("Refletor").
+add_word("Cantor").
+add_word("Flauta").
+add_word("Agitado").
+add_word("Prêmio").
+add_word("Jornalistas").
+add_word("Talco").
+add_word("Viseira").
+add_word("Acordo").
+add_word("Marcadores").
+add_word("Carretel").
+add_word("Pasta").
+add_word("Gôndola").
+add_word("Guindaste").
+add_word("Alavanca").
+add_word("Medicina").
+add_word("Alasca").
+add_word("Rubrica").
+add_word("Cervo").
+add_word("Tartaruga").
+add_word("Lagarta").
+add_word("Boato").
+add_word("Geometria").
+add_word("Companhia").
+add_word("Deslocamento").
+add_word("Xampu").
+add_word("Cowbell").
+add_word("Calafrios").
+add_word("Largura").
+add_word("Estoques").
+add_word("Beisebol").
+add_word("Tempo").
+add_word("Princesa").
+add_word("Pneus").
+add_word("Temperatura").
+add_word("Antenas").
+add_word("Espanador").
+add_word("Cuidado").
+add_word("Mosquiteiro").
+add_word("Aroma").
+add_word("Fluxo").
+add_word("Haste").
+add_word("Ninho").
+add_word("Ponte").
+add_word("Guilhotina").
+add_word("Amputar").
+add_word("Demônio").
+add_word("Escrever").
+add_word("Faces").
+add_word("Simpatia").
+add_word("Bagagem").
+add_word("Pegar").
+add_word("Gaivota").
+add_word("Facada").
+add_word("Arqueologia").
+add_word("Facturas").
+add_word("Ronronar").
+add_word("Ridículo").
 
 
-add_word("teste"),
-add_word("ciencia"),
-add_word("computacao"),
-add_word("materia"),
-add_word("teoria"),
-add_word("palavra"),
-add_word("compiladores"),
-add_word("linguagem"),
-add_word("programacao").
+
 
 

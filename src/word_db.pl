@@ -25,10 +25,16 @@ current_word(Chars) :-
     word(Chars).
 
 add_word(Chars) :-
-    not(word(Chars)),
-    assert_word(Chars).
+    string_chars(Aux, Chars),
+    string_lower(Aux, Lower),
+    string_chars(Lower, Word),
+    not(word(Word)),
+    assert_word(Word).
 
 del_word(Chars) :-
+    string_chars(Aux, Chars),
+    string_lower(Aux, Lower),
+    string_chars(Lower, Word),
     retractall_word(Chars).
 
 set_word(Old, New) :-

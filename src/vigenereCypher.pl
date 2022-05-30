@@ -18,23 +18,31 @@
     %%%%%%%%%%%%%%%%%% Vigenere Codificador/Decodificador %%%%%%%%%%%%%%%%%%%%%%%%
 
 vigenere(KeyString, S1, S2) :-
-    ( nonvar(S1) -> string_chars(S1, L1) ; nonvar(S2) -> string_chars(S2, L2) ),  % Garante que seja lista
-    string2Code(KeyString, KeyCodes),                   % Transfora lista de chars, em lista de codes
-    size(KeyCodes, KeyTam),                             % Busca Tamanho da lista
-    N is 1,                                             % Seta um contador
-    cypherV(KeyCodes, KeyTam, L1, L2, N),               % Chama a cifra
+    (nonvar(S1) ->                      % Se a entrada  for o texto traduzido
+        string_chars(S1, L1)            % Transforma em lista
+    ; 
+        nonvar(S2) ->                   % Se a entrada for o texto codificado
+            string_chars(S2, L2) ),     % Transforma em lista
+    string2Code(KeyString, KeyCodes),          % Transfora lista de chars, em lista de codes
+    size(KeyCodes, KeyTam),                    % Busca Tamanho da lista
+    N is 1,                                    % Seta um contador
+    cypherV(KeyCodes, KeyTam, L1, L2, N),      % Envia para a cifra
     string_chars(S1, L1),
-    string_chars(S2, L2).                               % Converte para saida em String
+    string_chars(S2, L2).                      % Converte para saida em String
 
 
-cypherV(KeyCodes, KeyTam, [H1|T1], [H2|T2], N) :-       % List de codes, Tamanho, Decifrado, Cifrado
-    nth1(N, KeyCodes, Key),                             % Pega o a chave da vez (definido pelo contador)  da lista de chaves
-    charCypherV(Key, H1, H2),                           % Envia para a cifra de char
-    ( N =:= KeyTam -> N1 is 1 ; N1 is N+1),             % Se o contador é o ultimo elemento da lista de chaves, volta ao começo
-    cypherV(KeyCodes, KeyTam, T1, T2, N1).              % Chama a recursividade
-cypherV(_,_,[],[],_).                                   % Encerra quando a lista de entrada acaba
+cypherV(KeyCodes, KeyTam, [H1|T1], [H2|T2], N) :-
+    nth1(N, KeyCodes, Key),                   % Pega o elemento N da chave
+    charCypherV(Key, H1, H2),                 % Envia para a cifra
+    (N =:= KeyTam ->           % Se o contador é o ultimo elemento da lista de chaves
+        N1 is 1                % Volta o contador para o começo
+    ; 
+        N1 is N+1              % Se não, incrementa o contador
+    ),    
+    cypherV(KeyCodes, KeyTam, T1, T2, N1).   % Proximo char
+cypherV(_,_,[],[],_).                     % Encerra quando a lista de entrada acaba
 
-charCypherV(Key, Char1, Char2) :-                       % Segue a mesma logica do Caesar
+charCypherV(Key, Char1, Char2) :-      % Segue a mesma logica do Caesar
     ( 
         nonvar(Char1) -> code(Char1, Code1),
         Code2 is (Code1+Key)mod 108
@@ -59,7 +67,6 @@ pairingLists(L1, L2, Output) :-
     ( Tam2 < Tam1 -> completList(L2, L2, LR2, L1) ; string_chars(L2, LR2 ) ),
     pairingListsAux(L1, LR2, Output).                           % Envia para criar uma nova lista de pares
 
-
 % Cria uma lista de pares a partir de duas listas de tamanhos iguais.
 pairingListsAux([H1|T1], [H2|T2], [[H1,H2]|T]) :-       % Output recebe na Head uma lista de com as Heads das outras listas
     pairingListsAux(T1, T2, T).                           
@@ -77,7 +84,7 @@ completList(_,[H|_],[H|[]],[_|[]]).                       % Encerra quando a Tai
 %%%%%%%%%%%% Segunto predicado pedido:  
 % Um predicado que relaciona uma mensagem cifrada, um tamanho de chave, 
 % uma palavra que sabidamente ocorre na mensagem decifrada e sua posição, com a chave.
-%% Teste -> decypherVigenerePosition("$bsêCUytWbü~CNtjVçCmÇtsqUpásÇntdÍpb&õªnaRl", 4, "Testar", 6, Key).
+%% Teste -> decypherVigenerePosition("ÇkfipõerapéCaijppónhovuCagpbÊBôájoé[aGfwoXfuuqf", 6, "finalmentes", 14, Key).
 decypherVigenerePosition(Input, TamKey, Hint, PosHint, Key) :-                         
     nth1(PosHint, Input, Elem),
     N is PosHint + 1,                                  % Char da primeira posição correspondente a Hint
@@ -136,7 +143,7 @@ listRemoveFirstElem([_|T], Output) :-
 %%%%%%%%%%%% Terceiro predicado pedido:  
 % Um predicado que relaciona uma mensagem cifrada, um tamanho de chave e uma palavra que 
 % ocorre no texto com a mensagem decifrada;
-% Teste -> decypherVigenereHint("$bsêCUytWbü~CNtjVçCmÇtsqUpásÇntdÍpb&õªnaRl", 4, "Testar", Text).
+% Teste -> decypherVigenereHint("ÇkfipõerapéCaijppónhovuCagpbÊBôájoé[aGfwoXfuuqf", 6, "finalmentes", Texto).
 decypherVigenereHint(Input, TamKey, Hint, Output) :-
     N is 1,                                             % Seta um contador    
     decypherVigenereHintAux(Input, Hint, TamKey, N, Output).    % Chama o loop para tentar achar a Hint  
@@ -155,12 +162,9 @@ decypherVigenereHintAux(Input, Hint, TamKey, N, Output) :-
 %%%%%%%%%%%% Quarto predicado pedido: 
 %Um predicado que relaciona uma mensagem cifrada, uma lista de possıveis palavras 
 % que ocorre no texto e um tamanho de chave com a mensagem decifrada.
-% Teste -> decypherVigenereListHints("uasnvplqhbcmnzvbjzesqadzrjjkpvu zobgjzsfhb qauardai dl", ["mundo", "fome", "nao", "qualquer"], 5, X).
+% Teste -> decypherVigenereListHints("ÇkfipõerapéCaijppónhovuCagpbÊBôájoé[aGfwoXfuuqf", 6, ["pizza","programação","finalmentes"], Texto).
 decypherVigenereListHints(Input, TamKey, [H|T], Output) :-
     (decypherVigenereHint(Input, TamKey, H, Output)             % Testo a Head com a dica
     ;    
         decypherVigenereListHints(Input, TamKey, T, Output)     % Se não achou, testo a próxima
     ).
-
-
-
