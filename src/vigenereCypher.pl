@@ -37,9 +37,9 @@ cypherV(_,_,[],[],_).                                   % Encerra quando a lista
 charCypherV(Key, Char1, Char2) :-                       % Segue a mesma logica do Caesar
     ( 
         nonvar(Char1) -> code(Char1, Code1),
-        Code2 is (Code1+Key)mod 112
+        Code2 is (Code1+Key)mod 108
         ; nonvar(Char2) -> code(Char2, Code2),
-        Code1 is (Code2-Key+112)mod 112
+        Code1 is (Code2-Key+108)mod 108
     ),
     code(Char1, Code1),
     code(Char2, Code2). 
@@ -77,15 +77,15 @@ completList(_,[H|_],[H|[]],[_|[]]).                       % Encerra quando a Tai
 %%%%%%%%%%%% Segunto predicado pedido:  
 % Um predicado que relaciona uma mensagem cifrada, um tamanho de chave, 
 % uma palavra que sabidamente ocorre na mensagem decifrada e sua posição, com a chave.
-%% Teste -> decypherVigenerePosition("uasnvplqhbcmnzvbjzesqadzrjjkpvu zobgjzsfhb qauardai dl",5, "qualquer", 25, Key).
-decypherVigenerePosition(Input, TamKey, Hint, PosHint, Key) :-                                         % Tamanho da Hint
+%% Teste -> decypherVigenerePosition("$bsêCUytWbü~CNtjVçCmÇtsqUpásÇntdÍpb&õªnaRl", 4, "Testar", 6, Key).
+decypherVigenerePosition(Input, TamKey, Hint, PosHint, Key) :-                         
     nth1(PosHint, Input, Elem),
     N is PosHint + 1,                                  % Char da primeira posição correspondente a Hint
     getHintEncrypted(Input, Elem, EncryptedHint, N, Hint),  % Busca a Hint na forma cifrada
     pairingLists(Hint, EncryptedHint, ParHint),             % Forma o par da Hint por char decifrado/cifrado
     getKeyCodes(ParHint, CodesHint),                        % Calculas as keyCodes da Hint
     listConcat(CodesHint, CodesHint, ListKeys),             % Duplico a lista para garantir que a chave esteja presente na sequencia
-    decypherVigenerePositionAux(Input, [Hint], EncryptedHint, ListKeys, TamKey, Key).
+    decypherVigenerePositionAux(Input, Hint, EncryptedHint, ListKeys, TamKey, Key).
 
 % Seleciona a Hint na forma Cifrada
 getHintEncrypted(Input, Elem, [Elem|T], N, [_|TC]) :-
@@ -106,8 +106,9 @@ decypherVigenerePositionAux(Text, Hint, EncryptedHint, ListKeys, TamKey, Key) :-
     N is 1, 
     listFirtsElem(ListKeys, N, TamKey, TryKey),             % Supõe que a key esteja na primeira posição da ListKeys
     vigenere(TryKey, TryText, Text),                        % Testa chave
-    splitWords(TryText, O),                                 % Separa as palavras
-    intersection(O, Hint, Matchs),                          % Tenta encontrar a Hint no resultado
+    cleaningChars(TryText, Clean),                          % formata para somente letras minusculas
+    splitWords(Clean, O),                            % Separa as palavras
+    intersection(O, [Hint], Matchs),                          % Tenta encontrar a Hint no resultado
     length(Matchs, Tam),
     (Tam > 0 ->                                             % Se achou, devolve a Key
         string_chars(Key, TryKey)
@@ -135,7 +136,7 @@ listRemoveFirstElem([_|T], Output) :-
 %%%%%%%%%%%% Terceiro predicado pedido:  
 % Um predicado que relaciona uma mensagem cifrada, um tamanho de chave e uma palavra que 
 % ocorre no texto com a mensagem decifrada;
-% Teste -> decypherVigenereHint("uasnvplqhbcmnzvbjzesqadzrjjkpvu zobgjzsfhb qauardai dl", 5, "qualquer", X).
+% Teste -> decypherVigenereHint("$bsêCUytWbü~CNtjVçCmÇtsqUpásÇntdÍpb&õªnaRl", 4, "Testar", Text).
 decypherVigenereHint(Input, TamKey, Hint, Output) :-
     N is 1,                                             % Seta um contador    
     decypherVigenereHintAux(Input, Hint, TamKey, N, Output).    % Chama o loop para tentar achar a Hint  
@@ -155,10 +156,10 @@ decypherVigenereHintAux(Input, Hint, TamKey, N, Output) :-
 %Um predicado que relaciona uma mensagem cifrada, uma lista de possıveis palavras 
 % que ocorre no texto e um tamanho de chave com a mensagem decifrada.
 % Teste -> decypherVigenereListHints("uasnvplqhbcmnzvbjzesqadzrjjkpvu zobgjzsfhb qauardai dl", ["mundo", "fome", "nao", "qualquer"], 5, X).
-decypherVigenereListHints(Input, [H|T], TamKey, Output) :-
+decypherVigenereListHints(Input, TamKey, [H|T], Output) :-
     (decypherVigenereHint(Input, TamKey, H, Output)             % Testo a Head com a dica
     ;    
-        decypherVigenereListHints(Input, T, TamKey, Output)     % Se não achou, testo a próxima
+        decypherVigenereListHints(Input, TamKey, T, Output)     % Se não achou, testo a próxima
     ).
 
 

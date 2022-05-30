@@ -104,22 +104,18 @@ myLast(X,[_|L]) :- myLast(X,L).
 % Formata os caracteres não necessarios
 
 cleaningChars(Input, Output) :-
-    cleaningCharsAux(Input, ' ', Output).
+    string_chars(Input, Chars),
+    cleaningCharsAux(Chars, ' ', Output).
 
 cleaningCharsAux([], Elem, [Elem|[]]).
 cleaningCharsAux([H|TI], Elem, [Elem|TO]) :-
     code(H, Code),
-    format('~n H: ~w Code: ~w',[H, Code]),
     (Code > 78 ->                               % Se for pontuação, substituo por espaço
         cleaningCharsAux(TI, ' ', TO)
     ;  
-        Code > 39 ->                            % Se for maiscula, transformo pra minuscula
-            X is Code - 39,
-            code(C, X),
-            cleaningCharsAux(TI, C, TO)
-            ;
-                cleaningCharsAux(TI, H, TO)     % Minuscula ou espaço, salvo
+        cleaningCharsAux(TI, H, TO)     
     ).
+
 
 
 
