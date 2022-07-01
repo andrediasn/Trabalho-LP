@@ -9,6 +9,8 @@
 module Main where
 
 import Utilities (randomList, listToString)
+import Game (gameLoop)
+import Data.IORef
 
 
 
@@ -20,18 +22,13 @@ main = do
     listSecret <- randomList (4)
     let secret = listToString listSecret
     print (secret)
-    putStrLn ("Tentativa:")
-    --gameLoop 0 secret
+    putStrLn "Regras:"
+    putStrLn " - Insira uma sequencia de 4 números"
+    putStrLn " - Cada números separado por espaço"
+    putStrLn " - Números dentro do intervalod de 1 a 6"
+    turn <- newIORef 0       
+    gameLoop turn secret
     
-
--- gameLoop :: String -> IO ()
--- gameLoop turn secret = do
---     input <- getLine
---     if (length input /= 7)
---     if (input == secret)
---         then putStrLn "Parabéns, você acertou após 4 tentativas."
---         else putStrLn "Nope. Guess again." >> gameLoop secret
-
 
 
 
