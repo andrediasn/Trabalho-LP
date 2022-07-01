@@ -7,8 +7,8 @@
 -- Matrícula: 201765551AC
 
 module Main where
-import System.Random (randomRIO)
-import Data.Char (digitToInt)
+
+import Utilities (randomList, listToString)
 
 
 
@@ -17,31 +17,23 @@ main = do
     putStrLn "\n|------------|"
     putStrLn "| CriptoGame |"
     putStrLn "|------------|\n"
-    code <- randomList (4)
-    print (code !! 1)
-    putStrLn ("Digite o Codigo:")
-    input <- getLine
+    listSecret <- randomList (4)
+    let secret = listToString listSecret
+    print (secret)
+    putStrLn ("Tentativa:")
+    --gameLoop 0 secret
     
-    putStrLn ("CodeAnswer: " ++ input)
-    -- putStrLn ("Pos1: " ++ code !! 1)
+
+-- gameLoop :: String -> IO ()
+-- gameLoop turn secret = do
+--     input <- getLine
+--     if (length input /= 7)
+--     if (input == secret)
+--         then putStrLn "Parabéns, você acertou após 4 tentativas."
+--         else putStrLn "Nope. Guess again." >> gameLoop secret
 
 
-randomList :: Int -> IO([Int])
-randomList 0 = return []
-randomList n = do
-  r  <- randomRIO (1,6)
-  rs <- randomList (n-1)
-  return (r:rs)
 
--- myShow :: String -> String
--- myShow s = concat ["[", intersperse ',' s, "]"]
 
--- gameLoop :: [Int] -> IO ()
--- gameLoop code = do
---     i <- fmap read getLine
---     map digitToInt i
---     if i == code 
---         then putStrLn "You got it!"
---         else putStrLn "Nope. Guess again." >> gameLoop code
 
 
