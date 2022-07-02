@@ -16,17 +16,16 @@ gameLoop turn secret = do
     putStr "? "
     input <- getLine                                                    -- Entrada
     valid <- validate (input)                                           -- Verifica entrada
-    if (valid)
+    if (not valid)
         then do
             putStrLn "Entrada inválida."
-            putStrLn "Sendo \"n\" um número entre 1 e 6. Insira no formato: n n n n" >> gameLoop turn secret        -- Loop
+            putStrLn "Sendo \"n\" um número entre 1 e 6. Insira no formato: ? n n n n \n" >> gameLoop turn secret        -- Loop
         else do
             modifyIORef' turn (+1)                                      -- Incrementa o turno
             if (input == secret)                                        -- Se entrada == segredo
                 then do
-                    putStr ("Parabéns, você acertou após ")
-                    readIORef turn >>= print
-                    -- putStrLn (" tentativas")  -- ?? Como printar na msm linha
+                    turnInt <- readIORef turn
+                    putStrLn ("Parabéns, você acertou após " ++ show turnInt ++ " tentativas")
                 else do
                     check secret input hits partial                     -- Verifica acertos/parciais 
                     putStr "Completos: "
@@ -46,6 +45,7 @@ check secret input hits partial = do
     hitPosition 2 secret input hits open2
     hitPosition 4 secret input hits open3
     hitPosition 6 secret input hits open4
+    -- partialPosition secret input partial open1 open2 open3 open4
  
 -- Função para encontrar acertos
 hitPosition :: Int -> String -> String -> IORef Integer -> IORef Bool -> IO ()
@@ -58,14 +58,29 @@ hitPosition pos secret input hits open = do
 
 -- partialPosition :: String -> String -> IORef Integer -> IORef Bool -> IORef Bool -> IORef Bool -> IORef Bool -> IO ()
 -- partialPosition secret input partial open1 open2 open3 open4 = do
+--     if(open1)
+--         then print ("open1 true")
+
     
 -- Função para validar entrada
 validate :: String -> IO (Bool)
 validate input = do
     if(length input /= 7)
-        then return True
-        else return False
-
-
--- then if(input !! 0 >= 1 && input !! 0 <= 6)
--- validateRange :: 
+        then return False
+        else do
+            let pos0 = (input !! 0)
+            let pos1 = (input !! 1)
+            let pos2 = (input !! 2)
+            let pos3 = (input !! 3)
+            let pos4 = (input !! 4)
+            let pos5 = (input !! 5)
+            let pos6 = (input !! 6) 
+            if( (pos0 >= '1' && pos0 <= '6') &&
+                (pos2 >= '1' && pos2 <= '6') &&
+                (pos4 >= '1' && pos4 <= '6') &&
+                (pos6 >= '1' && pos6 <= '6') &&
+                (pos1 == ' ') &&
+                (pos3 == ' ') &&
+                (pos5 == ' '))
+                    then return True
+                    else return False
